@@ -1,9 +1,10 @@
 const axios = require('axios');
 
+const baseURL = 'https://api.exchangerate.host';
 
 export async function Convertor({amount, fromSelected, toSelected}){
   try{
-    let convertorData = await axios.get(`https://api.exchangerate.host/convert`, {
+    let convertorData = await axios.get(`${baseURL}/convert`, {
       params: {
         from: fromSelected,
         to: toSelected,
@@ -20,7 +21,7 @@ export async function Convertor({amount, fromSelected, toSelected}){
 
 export async function Symbols(){
   try{
-    const symbolsData = await axios.get('https://api.exchangerate.host/symbols')
+    const symbolsData = await axios.get(`${baseURL}/symbols`)
     .then((response) => response);
     return symbolsData;
   }catch(err){
