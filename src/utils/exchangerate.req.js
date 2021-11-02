@@ -1,17 +1,19 @@
 const axios = require('axios');
 
 
-export function Convertor(props){
+export async function Convertor(props){
   const {
     amount,
     fromSelected,
     toSelected
   } = props;
-  return (axios.get(`https://api.exchangerate.host/convert?base=USD&from=${fromSelected}&to=${toSelected}&places=2&amount=${amount}`)
-    .then((response) => response.data))
+  let convertorData = await axios.get(`https://api.exchangerate.host/convert?base=USD&from=${fromSelected}&to=${toSelected}&places=2&amount=${amount}`)
+  .then((response) => response.data);
+  return await convertorData;
 }
 
-export function Symbols(){
-  return (axios.get('https://api.exchangerate.host/symbols')
-    .then((response) => response))
+export async function Symbols(){
+  const symbolsData = await axios.get('https://api.exchangerate.host/symbols')
+  .then((response) => response);
+  return await symbolsData;
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import './App.css';
+import styles from './App.module.css';
 import {Convertor, Symbols} from "./utils/exchangerate.req";
 import Currency from "./Currency";
 
@@ -56,14 +56,16 @@ function App() {
       onChangeCurrency={e=>setFromSelected(e.target.value)}
       onChangeAmount={handleFromAmountChange}
       amount={fromAmount}
+      flag={'fromCurrency'}
       />
-      <div className="equals">=</div>
+      <div className={styles.equals}>=</div>
       <Currency
       currencyOptions={currencyOptions}
       selectedCurrency={toSelected}
       onChangeCurrency={e=>setToSelected(e.target.value)}
       onChangeAmount={handleToAmountChange}
       amount={toAmount}
+      flag={'toCurrency'}
       />
     </>
   );

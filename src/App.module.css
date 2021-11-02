@@ -11,9 +11,9 @@ h1{
   margin: 0;
   margin-bottom: 0.5rem;
 }
-.input{
-  border: 1px solid #333;
-  border-radius: .3em;
+.inputs{
+  border: 3px solid #333;
+  border-radius: .5em;
   padding: .25rem;
   width: 7em;
 }
