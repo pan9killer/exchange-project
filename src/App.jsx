@@ -33,7 +33,7 @@ function App() {
   }, [])
 
   useEffect(()=>{
-      (async()=>{
+    (async()=>{
       if(fromSelected != null && toSelected != null){
         let fromTo = await Convertor({amount, fromSelected, toSelected});
         setCoeff(fromTo.result);
