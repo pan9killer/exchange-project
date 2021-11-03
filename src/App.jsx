@@ -21,25 +21,27 @@ function App() {
   }
 
   useEffect(()=>{
-    (async() =>{
+    const changeState = async() =>{
       let getSymbols = await Symbols();
       let fromTo = await Convertor({amount, fromSelected, toSelected});
       setCurrencyOptions([fromTo.query.from, ...Object.keys(getSymbols.data.symbols)]);
       setAmount(fromTo.query.amount);
-      setCoeff(fromTo.result);
+      setCoeff(fromTo.info.rate);
       setFromSelected('USD');
       setToSelected('BYN');
-    })()
+    };
+    changeState();
   }, [])
 
   useEffect(()=>{
-    (async()=>{
-      if(fromSelected != null && toSelected != null){
+    const getNewCurrency = async()=>{
+      if(fromSelected !== null && toSelected !== null){
         let fromTo = await Convertor({amount, fromSelected, toSelected});
-        setCoeff(fromTo.result);
+        setCoeff(fromTo.info.rate);
       }
-    })()
-  }, [fromSelected, toSelected])
+    };
+    getNewCurrency();
+  }, [fromSelected, toSelected, amount])
   
   function handleFromAmountChange(e){
     setAmount(e.target.value)
