@@ -24,7 +24,7 @@ function App() {
     const changeState = async() =>{
       let getSymbols = await Symbols();
       let fromTo = await Convertor({amount, fromSelected, toSelected});
-      setCurrencyOptions([fromTo.query.from, ...Object.keys(getSymbols.data.symbols)]);
+      setCurrencyOptions([...Object.keys(getSymbols.data.symbols)]);
       setAmount(fromTo.query.amount);
       setCoeff(fromTo.info.rate);
       setFromSelected('USD');
