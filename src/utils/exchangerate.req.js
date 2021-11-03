@@ -4,7 +4,7 @@ const instance = axios.create({baseURL: 'https://api.exchangerate.host/'})
 
 export async function Convertor({amount, fromSelected, toSelected}){
   try{
-    let convertorData = await instance.get(`convert`, {
+    const convertorData = await instance.get(`convert`, {
       params: {
         from: fromSelected,
         to: toSelected,

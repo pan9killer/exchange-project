@@ -22,8 +22,8 @@ function App() {
 
   useEffect(()=>{
     (async() =>{
-      let getSymbols = await Symbols();
-      let fromTo = await Convertor({amount, fromSelected, toSelected});
+      const getSymbols = await Symbols();
+      const fromTo = await Convertor({amount, fromSelected, toSelected});
       setCurrencyOptions([fromTo.query.from, ...Object.keys(getSymbols.data.symbols)]);
       setAmount(fromTo.query.amount);
       setCoeff(fromTo.result);
@@ -32,12 +32,13 @@ function App() {
     })()
   }, [])
 
-  useEffect(async()=>{
+  useEffect(()=>{
+    (async()=>{
     if(fromSelected != null && toSelected != null){
-      let fromTo = await Convertor({amount, fromSelected, toSelected});
+      const fromTo = await Convertor({amount, fromSelected, toSelected});
       setCoeff(fromTo.result);
     }
-  }, [fromSelected, toSelected])
+  })}, [fromSelected, toSelected])
   
   function handleFromAmountChange(e){
     setAmount(e.target.value)
