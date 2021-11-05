@@ -1,1 +1,2 @@
-Exchange pet project on react without TypeScript
+Exchange pet project on React
+API - https://exchangerate.host/
