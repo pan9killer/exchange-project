@@ -1,2 +1,1 @@
-#Exchange pet project on React
-API - https://exchangerate.host/
+#Exchange pet project on React with API - https://exchangerate.host/
