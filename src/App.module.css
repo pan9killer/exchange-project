@@ -21,6 +21,7 @@ select{
   margin-left: .5rem;
   border: 2px solid #333;
   border-radius: .5em;
+  padding: .25rem;
 }
 .equals{
   font-weight: bold;
